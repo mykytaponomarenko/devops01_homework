@@ -1,2 +1,1 @@
-This is my NEW readme
-This is my readme !!!
+Please follow instructions in order to apply basic math to 2 numbers 
