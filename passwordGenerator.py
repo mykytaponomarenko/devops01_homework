@@ -26,25 +26,3 @@ passwordLength = input("Type desired password length (at least 4 symbols) and pr
 
 password = generatePassword(passwordLength)    
 print(password + ", requested length: " + passwordLength + ", actual lenght: " + str(len(password)))
-
-
-
-#print(type(uppercase))
-
-
-# shows all english uppercase letters
-#for u in uppercase:
-#    print(u)
-
-# shows all english lowercase letters
-#for u in lowercase:
-#    print(u)
-
-# shows 0-9
-# for u in numbers:
-#    print(u)
-
-# shows specials
-#print("There are " + str(len(special)) + " specials")
-#for u in special:
-#    print(u)
