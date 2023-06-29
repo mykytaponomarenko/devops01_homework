@@ -1,6 +1,8 @@
 import string
 import random
 
+print("\nWelcome to PPG - PyPasswordGenerator!")
+
 def generate_password(password_length):
 
 # Initiate all types of characters. Each value is string
