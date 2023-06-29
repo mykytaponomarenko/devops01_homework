@@ -1,7 +1,7 @@
 import string
 import random
 
-print("\nWelcome to PPG - PyPasswordGenerator!")
+print("\nWelcome to PPG - PyPasswordGenerator :)")
 
 def generate_password(password_length):
 
