@@ -1,24 +1,9 @@
 #!/usr/bin/env python
 
-from settings import change_settings
+from generate_password import PasswordGenerator
+import string
+import random
 
-class PasswordGenerator:
- def __init__(self, settings=None):
-  if settings is None:
-   settings = {'length': 8, 'UPPER' : True, 'lower' : True, 'numb6r' : True, 'speci@l' : True}
-  self.settings = settings
-
- def generate_password(self):
-  # Add code to generate a password based on the settings
-  print("Generating password...")
-
- def show_settings(self):
-  print("Settings: " + str(self.settings))
- 
- def change_settings(self):
-    change_settings(self.settings)
-
-print('\nWelcome to Password Generator!')
 
 pg = PasswordGenerator()
 
