@@ -5,14 +5,17 @@ def change_settings(settings):
    switch_upper = 'disable include_uppercase case'
   else:
     switch_upper = 'enable upper case'
+
   if settings['include_lowercase'] == 1:
    switch_lower = 'disable lower case'
   else:
     switch_lower = 'enable lower case'
+
   if settings['include_digits'] == 1:
     switch_number = 'disable numbers'
   else:
     switch_number = 'enable numbers'
+
   if settings['include_special_chars'] == 1:
     switch_special = 'disable special characters'
   else:
@@ -30,7 +33,7 @@ def change_settings(settings):
 
   if user == '1':
     new_length = input('type new length value\n')
-    settings['length'] = int(new_length)
+    check_length(settings, new_length)
   elif user == '2':
     settings['include_uppercase'] = not settings['include_uppercase']
   elif user == '3':
@@ -43,4 +46,17 @@ def change_settings(settings):
     pass
   else:
     print("Invalid command, back to main menu")
-  
+
+def check_length(settings, new_length):
+  try:
+     if int(new_length) < define_min_length(settings):
+      print('Current setup requires password length of at least ' + str(define_min_length(settings))
+      )
+     else:
+      settings['length'] = int(new_length) # set new length value from user input
+      print('desired password length set as ' + new_length)
+  except:
+     print('exception')
+
+def define_min_length(settings):
+  return settings['include_uppercase'] + settings['include_lowercase'] + settings['include_digits'] + settings['include_special_chars']

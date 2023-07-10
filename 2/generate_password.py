@@ -13,12 +13,12 @@ class PasswordGenerator:
  def __init__(self, settings=None):
   
   if settings is None:                           
-   settings = {                                          # assigning default settings
+   settings = {                           # assigning default settings
                'length': 8, 
                'include_uppercase' : True,
                'include_lowercase' : True,
                'include_digits' : True,
-               'include_special_chars' : True
+               'include_special_chars' : True,
                }
   self.settings = settings
 
@@ -42,6 +42,10 @@ class PasswordGenerator:
   ]
   password = ''.join(password)
 
+  while len(password) < self.settings['length']:
+   password += random.choice(chars)
+
+  print('Your password is displayed on the next line\n' + password)
   
 
  def show_settings(self):
