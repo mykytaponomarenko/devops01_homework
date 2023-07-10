@@ -5,7 +5,7 @@ def change_settings(settings):
    switch_upper = 'disable include_uppercase case'
   else:
     switch_upper = 'enable upper case'
-  if settings['include_lower'] == 1:
+  if settings['include_lowercase'] == 1:
    switch_lower = 'disable lower case'
   else:
     switch_lower = 'enable lower case'
@@ -34,7 +34,7 @@ def change_settings(settings):
   elif user == '2':
     settings['include_uppercase'] = not settings['include_uppercase']
   elif user == '3':
-    settings['include_lower'] = not settings['include_lower']
+    settings['include_lowercase'] = not settings['include_lowercase']
   elif user == '4':
     settings['include_digits'] = not settings['include_digits']
   elif user == '5':
