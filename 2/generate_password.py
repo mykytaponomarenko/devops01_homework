@@ -3,6 +3,7 @@
 from settings import change_settings
 import string
 import random
+import pyperclip
 
 uppercase = string.ascii_uppercase
 lowercase = string.ascii_lowercase
@@ -45,8 +46,8 @@ class PasswordGenerator:
   while len(password) < self.settings['length']:
    password += random.choice(chars)
 
-  print('Your password is displayed on the next line\n' + password)
-  
+  print('You can paste password with ctrl + v\n Password value:   ' + password)
+  pyperclip.copy(password)  
 
  def show_settings(self):
   print("Settings: " + str(self.settings))
