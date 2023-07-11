@@ -1,40 +1,62 @@
 #!/usr/bin/env python
 
 def change_settings(settings):   
-  if settings['UPPER'] == 1:
-   upper_status = 'disable upper case'
+  if settings['include_uppercase'] == 1:
+   switch_upper = 'disable include_uppercase case'
   else:
-    upper_status = 'enable upper case'
-  if settings['lower'] == 1:
-   lower_status = 'disable lower case'
+    switch_upper = 'enable upper case'
+
+  if settings['include_lowercase'] == 1:
+   switch_lower = 'disable lower case'
   else:
-    lower_status = 'enable lower case'
-  if settings['numb6r'] == 1:
-    number_status = 'disable numbers'
+    switch_lower = 'enable lower case'
+
+  if settings['include_digits'] == 1:
+    switch_number = 'disable numbers'
   else:
-    number_status = 'enable numbers'
-  if settings['speci@l'] == 1:
-    special_status = 'disable special characters'
+    switch_number = 'enable numbers'
+
+  if settings['include_special_chars'] == 1:
+    switch_special = 'disable special characters'
   else:
-    special_status = 'enable special characters'
+    switch_special = 'enable special characters'
   
   user = input('''
         Actions:
         1 - set password length
-        2 - ''' + upper_status + '''
-        3` - ''' + lower_status + '''
-        4 - ''' + number_status + '''
-        5 - ''' + special_status + '\n')
+        2 - ''' + switch_upper + '''
+        3 - ''' + switch_lower + '''
+        4 - ''' + switch_number + '''
+        5 - ''' + switch_special + '''
+        0 - back
+        ''')
 
   if user == '1':
     new_length = input('type new length value\n')
-    settings['length'] = int(new_length)
+    check_length(settings, new_length)
   elif user == '2':
-    settings['UPPER'] = not settings['UPPER']
+    settings['include_uppercase'] = not settings['include_uppercase']
   elif user == '3':
-    settings['lower'] = not settings['lower']
+    settings['include_lowercase'] = not settings['include_lowercase']
   elif user == '4':
-    settings['numb6r'] = not settings['numb6r']
+    settings['include_digits'] = not settings['include_digits']
   elif user == '5':
-    settings['speci@l'] = not settings['speci@l']
-  
+    settings['include_special_chars'] = not settings['include_special_chars']
+  elif user == '0':
+    pass
+  else:
+    print("Invalid command, back to main menu")
+
+def check_length(settings, new_length):
+  try:
+     if int(new_length) < define_min_length(settings):
+      print('Current setup requires password length of at least ' + str(define_min_length(settings))
+      )
+     else:
+      settings['length'] = int(new_length) # set new length value from user input
+      print('desired password length set as ' + new_length)
+  except:
+     print('exception')
+
+def define_min_length(settings):
+  return settings['include_uppercase'] + settings['include_lowercase'] + settings['include_digits'] + settings['include_special_chars']
